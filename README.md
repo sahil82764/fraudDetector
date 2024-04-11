@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Transaction Fraud Detection
 
 A data science project to predict whether a transaction is a fraud or not.
@@ -197,3 +198,6 @@ The company may expect a revenue of R\$ 57,251,574.44. This result may show the 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+=======
+# fraudDetector
+>>>>>>> 27c3fbfea3edd1091419d0c9bc9918790d26428e

@@ -5,8 +5,8 @@ import pandas as pd
 class Fraud:
     
     def __init__(self):
-        self.minmaxscaler = joblib.load(r'C:\Users\Sahil Khan\OneDrive\Desktop\AI GRAD CERT\transaction-fraud-detection-main\functions\minmaxscaler_cycle1.joblib')
-        self.onehotencoder = joblib.load(r'C:\Users\Sahil Khan\OneDrive\Desktop\AI GRAD CERT\transaction-fraud-detection-main\functions\onehotencoder_cycle1.joblib')
+        self.minmaxscaler = joblib.load('..\functions\minmaxscaler_cycle1.joblib')
+        self.onehotencoder = joblib.load('..\onehotencoder_cycle1.joblib')
         
     def data_cleaning(self, df1):
         cols_old = df1.columns.tolist()

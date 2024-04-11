@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>FRAUD DETECTOR</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='Fraud-mindmap.png') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>FRAUD DETECTION IN FINANCIAL TRANSACTIONS</h1>
+        <!-- Prediction Area -->
+        <div class="prediction-area" style='margin-top: 45px;'>
+            <form action="/predict" method="post">
+                <div class="form-group">
+                    <label for="step">STEP:</label>
+                    <select name="step" id="step">
+                        {% for step in steps %}
+                            <option value="{{ step }}">{{ step }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="transaction_type">TRANSACTION TYPE:</label>
+                    <select name="transaction_type" id="transaction_type">
+                        {% for type in transaction_type %}
+                            <option value="{{ type }}">{{ type }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="amount">AMOUNT:</label>
+                    <input type="number" id="amount" name="amount" required>
+                </div>
+                <div class="form-group">
+                    <label for="nameOrig">SENDER ID:</label>
+                    <input type="text" id="nameOrig" name="nameOrig" required>
+                </div>
+                <div class="form-group">
+                    <label for="oldbalanceOrg">SENDER's OLD BALANCE:</label>
+                    <input type="number" id="oldbalanceOrg" name="oldbalanceOrg" required>
+                </div>
+                <div class="form-group">
+                    <label for="newbalanceOrig">SENDER's NEW BALANCE:</label>
+                    <input type="number" id="newbalanceOrig" name="newbalanceOrig" required>
+                </div>
+                <div class="form-group">
+                    <label for="nameDest">RECIPIENT's ID:</label>
+                    <input type="text" id="nameDest" name="nameDest" required>
+                </div>
+                <div class="form-group">
+                    <label for="oldbalanceDest">RECIPIENT's OLD BALANCE:</label>
+                    <input type="number" id="oldbalanceDest" name="oldbalanceDest" required>
+                </div>
+                <div class="form-group">
+                    <label for="newbalanceDest">RECIPIENT's NEW BALANCE:</label>
+                    <input type="number" id="newbalanceDest" name="newbalanceDest" required>
+                </div>
+                <div class="form-group">
+                    <label for="isFlaggedFraud">FRAUD FLAG:</label>
+                    <select name="isFlaggedFraud" id="isFlaggedFraud">
+                        {% for flag in isFlaggedFraud %}
+                            <option value="{{ flag }}">{{ flag }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <button type="submit">PREDICT FRAUD</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

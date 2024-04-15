@@ -20,7 +20,7 @@ transaction_type = ['CASH_IN',
 def home():
     return render_template('index.html', transaction_type=sorted(transaction_type))
 
-@app.route('/predict', methods=['GET','POST'])
+@app.route('/predict', methods=['POST'])
 def churn_predict():
     
     if request.method == 'POST':

@@ -1,12 +1,17 @@
 import joblib
 import inflection
 import pandas as pd
+import os
 
 class Fraud:
     
     def __init__(self):
-        self.minmaxscaler = joblib.load('..\functions\minmaxscaler_cycle1.joblib')
-        self.onehotencoder = joblib.load('..\onehotencoder_cycle1.joblib')
+
+        minmaxscaler_path = os.path.join(os.getcwd(), 'functions', 'minmaxscaler_cycle1.joblib')
+        self.minmaxscaler = joblib.load(minmaxscaler_path)
+
+        onehotencoder_path = os.path.join(os.getcwd(), 'functions', 'onehotencoder_cycle1.joblib')
+        self.onehotencoder = joblib.load(onehotencoder_path)
         
     def data_cleaning(self, df1):
         cols_old = df1.columns.tolist()

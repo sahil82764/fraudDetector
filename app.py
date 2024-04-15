@@ -16,8 +16,6 @@ transaction_type = ['CASH_IN',
          'PAYMENT',
          'TRANSFER']
 
-# isFlaggedFraud = [0,1]
-
 @app.route('/')
 def home():
     return render_template('index.html', transaction_type=sorted(transaction_type))

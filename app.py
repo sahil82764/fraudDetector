@@ -3,7 +3,7 @@ import pandas as pd
 import json
 import os
 from api.fraud.Fraud import Fraud
-from flask import Flask, request, Response, render_template
+from flask import Flask, render_template, request
 
 # loading model
 model_path = os.path.join(os.getcwd(), 'models', 'model_cycle1.joblib')
@@ -23,7 +23,7 @@ def home():
     return render_template('index.html', transaction_type=sorted(transaction_type))
 
 @app.route('/predict', methods=['POST'])
-def churn_predict():
+def predict():
     
     if request.method == 'POST':
         step = int(request.form['step'])
@@ -35,8 +35,7 @@ def churn_predict():
         nameDest = request.form['nameDest']
         oldbalanceDest = float(request.form['oldbalanceDest'])
         newbalanceDest = float(request.form['newbalanceDest'])
-        # isFlaggedFraud = request.form['isFlaggedFraud']
-
+             
         input_df = pd.DataFrame({'step': [step], 'type': [type], 'amount': [amount],
                                  'nameOrig': [nameOrig], 'oldbalanceOrg': [oldbalanceOrg], 'newbalanceOrig': [newbalanceOrig],
                                  'nameDest': [nameDest], 'oldbalanceDest': [oldbalanceDest], 'newbalanceDest': [newbalanceDest]})
@@ -57,14 +56,9 @@ def churn_predict():
         # Prediction
         prediction_json = pipeline.get_prediction(model, input_df, df3)
         prediction = json.loads(prediction_json)
-        print(prediction)
-        # print(type(prediction))
-
+        
         # Render result.html with prediction
         return render_template('result.html', prediction=prediction[0]['prediction'])
-        
-    else:
-        return Response('{}', status=200, mimetype='application/json')
 
 if __name__ == '__main__':
-    app.run() 
+    app.run(debug=True)

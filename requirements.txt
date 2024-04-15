@@ -6,3 +6,4 @@ gunicorn==20.1.0
 pip
 wheel
 Werkzeug
+inflection==0.5.1

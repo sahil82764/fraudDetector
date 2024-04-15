@@ -22,7 +22,7 @@ steps = ['1','2','3','4','5','6','7','8','9','10']
 
 @app.route('/')
 def home():
-    return render_template('index.html', transaction_type=sorted(transaction_type), step=sorted(steps))
+    return render_template('index.html', transaction_type=sorted(transaction_type), steps=sorted(steps))
 
 @app.route('/predict', methods=['POST'])
 def predict():

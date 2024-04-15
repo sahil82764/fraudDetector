@@ -2,7 +2,7 @@ Flask
 pandas
 scikit-learn
 numpy
-gunicorn
+gunicorn==20.1.0
 pip
 wheel
 Werkzeug

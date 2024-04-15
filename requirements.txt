@@ -1,8 +1,8 @@
-Flask==2.1.3
-pandas==1.3.3
-scikit-learn==1.0.2
-numpy==1.21.5
-gunicorn==20.1.0
-pip==23.3.2
-wheel==0.42.0
-Werkzeug==2.0.2
+Flask
+pandas
+scikit-learn
+numpy
+gunicorn
+pip
+wheel
+Werkzeug

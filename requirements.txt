@@ -7,3 +7,4 @@ pip
 wheel
 Werkzeug
 inflection==0.5.1
+joblib

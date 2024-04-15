@@ -18,9 +18,11 @@ transaction_type = ['CASH_IN',
          'PAYMENT',
          'TRANSFER']
 
+step = [1,2,3,4,5,6,,7,8,9,10]
+
 @app.route('/')
 def home():
-    return render_template('index.html', transaction_type=sorted(transaction_type))
+    return render_template('index.html', transaction_type=sorted(transaction_type), step=sorted(step))
 
 @app.route('/predict', methods=['POST'])
 def predict():

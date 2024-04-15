@@ -5,7 +5,8 @@ from api.fraud.Fraud import Fraud
 from flask import Flask, request, Response, render_template
 
 # loading model
-model = joblib.load('models\model_cycle1.joblib')
+model_path = os.path.join(os.getcwd(), 'models', 'model_cycle1.joblib')
+model = joblib.load(model_path)
 
 # initialize API
 app = Flask(__name__)

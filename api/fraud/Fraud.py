@@ -1,6 +1,5 @@
 import joblib
 import inflection
-import pandas as pd
 import os
 
 class Fraud:

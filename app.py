@@ -1,8 +1,8 @@
 import joblib
 import pandas as pd
 import json
-import os
 from api.fraud.Fraud import Fraud
+import os
 from flask import Flask, render_template, request
 
 # loading model
@@ -16,15 +16,15 @@ transaction_type = ['CASH_IN',
          'CASH_OUT',
          'DEBIT',
          'PAYMENT',
-         'TRANSFER']
+         'TRANSFER'
+         ]
 
-steps = ['1','2','3','4','5','6','7','8','9','10']
 
 @app.route('/')
 def home():
-    return render_template('index.html', transaction_type=sorted(transaction_type), steps=steps)
+    return render_template('index.html', transaction_type=sorted(transaction_type))
 
-@app.route('/predict', methods=['GET','POST'])
+@app.route('/predict', methods=['POST'])
 def predict():
     
     if request.method == 'POST':
